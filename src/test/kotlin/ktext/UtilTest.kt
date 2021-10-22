@@ -7,6 +7,6 @@ class UtilTest {
 
     @Test
     fun testGetOutputName() {
-        Assertions.assertEquals("out_rotated.pdf", Util.getOutputName("out"))
+        Assertions.assertEquals("out_modified.pdf", Util.getOutputName("out"))
     }
 }

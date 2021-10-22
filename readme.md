@@ -3,18 +3,22 @@ ktext
 
 Wrapper around iText library: https://itextpdf.com/en
 
+Use a tagged release if you want a stable and working project.
+
 Currently it can only rotate .pdf files.
+
+Usage
+-----
+
+```
+java -jar build/libs/ktext.jar file.pdf --rotate
+```
 
 Building
 --------
+
 ```
 ./gradlew clean build
-```
-
-Running
--------
-```
-java -jar build/libs/ktext.jar
 ```
 
 To build without running test run:
@@ -30,6 +34,13 @@ To upgrade Gradle run:
 To upgrade dependencies run:
 ```
 ./gradlew build --refresh-dependencies
+```
+
+Testing
+-------
+
+```
+java -jar build/libs/ktext.jar test_cases/blank_page.pdf --rotate
 ```
 
 License
