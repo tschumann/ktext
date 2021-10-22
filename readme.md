@@ -3,6 +3,8 @@ ktext
 
 Wrapper around iText library: https://itextpdf.com/en
 
+Currently it can only rotate .pdf files.
+
 Building
 --------
 ```
@@ -29,3 +31,8 @@ To upgrade dependencies run:
 ```
 ./gradlew build --refresh-dependencies
 ```
+
+License
+-------
+
+AGPL 3.0 because iText is AGPL 3.0
