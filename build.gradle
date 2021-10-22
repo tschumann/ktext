@@ -1,0 +1,67 @@
+plugins {
+    id 'application'
+    id 'jacoco'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            'com.itextpdf:itext7-core:7.0.2',
+            'org.jetbrains.kotlin:kotlin-stdlib:1.5.31'
+    )
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+application {
+    mainClassName = 'ktext.Main'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ktext.Main'
+        )
+    }
+
+    // magic to copy in all dependencies
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+tasks.withType(JavaCompile).all {
+    options.compilerArgs.add("-Xlint:all")
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+        outputs.upToDateWhen { false }
+        showStandardStreams = true
+    }
+
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.enabled true
+    }
+}
+
+test.finalizedBy jacocoTestReport
