@@ -5,6 +5,7 @@ import com.itextpdf.kernel.pdf.PdfPage
 import com.itextpdf.kernel.pdf.PdfReader
 import com.itextpdf.kernel.pdf.PdfWriter
 import java.io.File
+import jtext.PrintablePdfDocumentInfo
 import kotlin.jvm.JvmStatic
 
 class Main {
@@ -14,7 +15,7 @@ class Main {
         fun main(args: Array<String>) {
             val input: File = File(args[0])
             if (!input.exists()) {
-                kotlin.io.println("No such file ${args[0]}")
+                println("No such file ${args[0]}")
                 return
             }
 
@@ -22,12 +23,12 @@ class Main {
 
             when (args[1]) {
                 "--rotate" -> {
-                    val numberOfPages: Int = document.getNumberOfPages()
-                    kotlin.io.println("Rotating ${numberOfPages} pages in ${args[0]} 90 degrees")
+                    val numberOfPages: Int = document.numberOfPages
+                    println("Rotating $numberOfPages pages in ${args[0]} 90 degrees")
 
                     for (p in 1..numberOfPages) {
                         val page: PdfPage = document.getPage(p)
-                        val rotation: Int = page.getRotation()
+                        val rotation: Int = page.rotation
                         if (rotation == 0) {
                             page.rotation = 90
                         }
@@ -35,6 +36,10 @@ class Main {
                             page.rotation = (rotation + 90) % 360
                         }
                     }
+                }
+                "--info" -> {
+                    // this feels a bit messy - constructing a new PdfDocumentInfo rather than wrangling the existing one
+                    println(PrintablePdfDocumentInfo(document))
                 }
             }
 

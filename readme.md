@@ -12,6 +12,7 @@ Usage
 
 ```
 java -jar build/libs/ktext.jar file.pdf --rotate
+java -jar build/libs/ktext.jar file.pdf --info
 ```
 
 Building
