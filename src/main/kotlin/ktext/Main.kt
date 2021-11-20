@@ -1,11 +1,7 @@
 package ktext
 
-import com.itextpdf.kernel.pdf.PdfDocument
-import com.itextpdf.kernel.pdf.PdfPage
-import com.itextpdf.kernel.pdf.PdfReader
-import com.itextpdf.kernel.pdf.PdfWriter
+import com.itextpdf.kernel.pdf.*
 import java.io.File
-import jtext.PrintablePdfDocumentInfo
 import kotlin.jvm.JvmStatic
 
 class Main {
@@ -38,8 +34,12 @@ class Main {
                     }
                 }
                 "--info" -> {
-                    // this feels a bit messy - constructing a new PdfDocumentInfo rather than wrangling the existing one
-                    println(PrintablePdfDocumentInfo(document))
+                    val info: PdfDocumentInfo = document.documentInfo
+                    println(info.author)
+                    println(info.subject)
+                    println(info.keywords)
+                    println(info.creator)
+                    println(info.producer)
                 }
             }
 
