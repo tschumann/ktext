@@ -1,6 +1,7 @@
 package ktext
 
 import com.itextpdf.kernel.pdf.*
+import jtext.Util
 import java.io.File
 import kotlin.jvm.JvmStatic
 
@@ -20,26 +21,22 @@ class Main {
             when (args[1]) {
                 "--rotate" -> {
                     val numberOfPages: Int = document.numberOfPages
-                    println("Rotating $numberOfPages pages in ${args[0]} 90 degrees")
+                    println("Rotating $numberOfPages pages in ${args[0]} 90 degrees clockwise")
 
                     for (p in 1..numberOfPages) {
                         val page: PdfPage = document.getPage(p)
                         val rotation: Int = page.rotation
-                        if (rotation == 0) {
-                            page.rotation = 90
-                        }
-                        else {
-                            page.rotation = (rotation + 90) % 360
-                        }
+
+                        page.rotation = (rotation + 90) % 360
                     }
                 }
                 "--info" -> {
                     val info: PdfDocumentInfo = document.documentInfo
-                    println(info.author)
-                    println(info.subject)
-                    println(info.keywords)
-                    println(info.creator)
-                    println(info.producer)
+                    println("Author: " + (info.author ?: ""))
+                    println("Subject: " + (info.subject ?: ""))
+                    println("Keywords: " + (info.keywords ?: ""))
+                    println("Creator: " + (info.creator ?: ""))
+                    println("Producer: " + (info.producer ?: ""))
                 }
             }
 

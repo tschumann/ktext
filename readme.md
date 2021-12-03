@@ -5,7 +5,7 @@ Wrapper around iText library: https://itextpdf.com/en
 
 Use a tagged release if you want a stable and working project.
 
-Currently it can only rotate .pdf files.
+Currently it can rotate and give some basic information on .pdf files.
 
 Usage
 -----
@@ -42,6 +42,7 @@ Testing
 
 ```
 java -jar build/libs/ktext.jar test_cases/blank_page.pdf --rotate
+java -jar build/libs/ktext.jar test_cases/blank_page.pdf --info
 ```
 
 License

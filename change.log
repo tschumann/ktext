@@ -1,4 +1,11 @@
-v0.1 (06/11/2021)
+v0.3 (04/12/2021)
+- Updated iText.
+- Updated Kotlin.
+- Updated --info to say what each field is
+- Updated --info to show the empty string instead of null
+- Updated --rotate output to clarify what direction the rotation is in
+
+v0.2 (06/11/2021)
 - Added --info
 - Updated iText
 
