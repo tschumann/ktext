@@ -3,14 +3,14 @@ package ktext
 import com.itextpdf.kernel.pdf.*
 import jtext.Util
 
-class PdfFile(fileName: String) {
+class PdfFile(fileName: String, write: Boolean) {
 
     private val fileName: String = fileName
-    private val document: PdfDocument = PdfDocument(PdfReader(fileName), PdfWriter(Util.getOutputName(fileName)))
+    private val document: PdfDocument =  if (write) PdfDocument(PdfReader(fileName), PdfWriter(Util.getOutputName(fileName))) else PdfDocument(PdfReader(fileName))
 
     fun rotate() {
         val numberOfPages: Int = document.numberOfPages
-        println("Rotating $numberOfPages pages in ${fileName} 90 degrees clockwise")
+        println("Rotating $numberOfPages pages in $fileName 90 degrees clockwise")
 
         for (p in 1..numberOfPages) {
             val page: PdfPage = document.getPage(p)

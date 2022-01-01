@@ -4,6 +4,7 @@ import java.io.File
 import kotlin.jvm.JvmStatic
 
 class Main {
+
     companion object {
 
         @JvmStatic
@@ -14,18 +15,18 @@ class Main {
                 return
             }
 
-            val pdf: PdfFile = PdfFile(args[0])
-
             when (args[1]) {
                 "--rotate" -> {
+                    val pdf: PdfFile = PdfFile(args[0], true)
                     pdf.rotate()
+                    pdf.close()
                 }
                 "--info" -> {
+                    val pdf: PdfFile = PdfFile(args[0], false)
                     pdf.printInfo()
+                    pdf.close()
                 }
             }
-
-            pdf.close()
         }
     }
 }
