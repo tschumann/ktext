@@ -1,12 +1,18 @@
 plugins {
     id 'application'
     id 'jacoco'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
 
 repositories {
@@ -15,15 +21,15 @@ repositories {
 
 dependencies {
     implementation(
-            "com.itextpdf:itext7-core:7.2.0",
-            "org.jetbrains.kotlin:kotlin-stdlib:1.6.0"
+            'com.itextpdf:itext7-core:7.2.0',
+            'org.jetbrains.kotlin:kotlin-stdlib:1.6.10'
     )
 
     testImplementation(
-            "org.junit.jupiter:junit-jupiter-api:5.8.1"
+            'org.junit.jupiter:junit-jupiter-api:5.8.2'
     )
     testRuntimeOnly(
-            "org.junit.jupiter:junit-jupiter-engine:5.8.1"
+            'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     )
 }
 
@@ -41,7 +47,9 @@ jar {
     // magic to copy in all dependencies
     from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     // stop Exception in thread "main" java.lang.SecurityException: Invalid signature file digest for Manifest main attributes
-    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    exclude('META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA')
+    // stop > Entry META-INF/versions/9/module-info.class is a duplicate but no duplicate handling strategy has been set.
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
 tasks.withType(JavaCompile).all {
