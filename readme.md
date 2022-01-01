@@ -10,7 +10,7 @@ Currently it can rotate and give some basic information on .pdf files.
 Usage
 -----
 
-ktext needs at least Java 11 to run so you may need to point directly to your installation of Java e.g. `"C:\Program Files\Java\jdk-13.0.1\bin\java"`
+ktext needs at least Java 11 to run, so you may need to point directly to your installation of Java e.g. `"C:\Program Files\Java\jdk-13.0.1\bin\java"`
 
 ```
 java -jar build/libs/ktext.jar file.pdf --rotate
