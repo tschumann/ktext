@@ -21,12 +21,14 @@ class PdfFile(fileName: String, write: Boolean) {
     }
 
     fun printInfo() {
-        val info: PdfDocumentInfo = document.documentInfo
-        println("Author: " + (info.author ?: ""))
-        println("Subject: " + (info.subject ?: ""))
-        println("Keywords: " + (info.keywords ?: ""))
-        println("Creator: " + (info.creator ?: ""))
-        println("Producer: " + (info.producer ?: ""))
+        val documentInfo: PdfDocumentInfo = document.documentInfo
+        println("Author: " + (documentInfo.author ?: ""))
+        println("Subject: " + (documentInfo.subject ?: ""))
+        println("Keywords: " + (documentInfo.keywords ?: ""))
+        println("Creator: " + (documentInfo.creator ?: ""))
+        println("Producer: " + (documentInfo.producer ?: ""))
+        val pdfVersion: PdfVersion = document.pdfVersion
+        println("PDF version: $pdfVersion")
     }
 
     fun close() {
