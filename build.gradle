@@ -1,7 +1,7 @@
 plugins {
     id 'application'
     id 'jacoco'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
 }
 
 java {
@@ -22,16 +22,16 @@ repositories {
 dependencies {
     implementation(
             'com.itextpdf:itext7-core:7.2.0',
-            'org.jetbrains.kotlin:kotlin-stdlib:1.6.10'
+            'org.jetbrains.kotlin:kotlin-stdlib:1.7.10'
     )
 
     testImplementation(
-            'org.junit.jupiter:junit-jupiter-api:5.8.2',
-            'org.jetbrains.kotlin:kotlin-test-common:1.6.10',
-            'org.jetbrains.kotlin:kotlin-test:1.6.10'
+            'org.junit.jupiter:junit-jupiter-api:5.9.0',
+            'org.jetbrains.kotlin:kotlin-test-common:1.7.10',
+            'org.jetbrains.kotlin:kotlin-test:1.7.10'
     )
     testRuntimeOnly(
-            'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+            'org.junit.jupiter:junit-jupiter-engine:5.9.0'
     )
 }
 
@@ -69,7 +69,7 @@ test {
 }
 
 jacoco {
-    toolVersion = "0.8.7"
+    toolVersion = "0.8.8"
 }
 
 jacocoTestReport {
