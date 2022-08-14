@@ -1,8 +1,8 @@
 v0.4
 - Updated Kotlin.
-- Updated requirement to Java 11 (from Java 8).
-- Fixed --info creating an output file.
-- Added .pdf version to --info output
+- Updated requirement to Java 11 (from Java 8)
+- Fixed --info creating an output file
+- Added .pdf version and page size to --info output
 
 v0.3 (04/12/2021)
 - Updated iText.

@@ -1,5 +1,6 @@
 package ktext
 
+import com.itextpdf.kernel.geom.PageSize
 import com.itextpdf.kernel.pdf.*
 import jtext.Util
 
@@ -29,6 +30,9 @@ class PdfFile(fileName: String, write: Boolean) {
         println("Producer: " + (documentInfo.producer ?: ""))
         val pdfVersion: PdfVersion = document.pdfVersion
         println("PDF version: $pdfVersion")
+        // this returns page size in points where a point is 1/72 inch
+        val pageSize: PageSize = document.defaultPageSize
+        println("Default page size: $pageSize")
     }
 
     fun close() {

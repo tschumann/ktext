@@ -10,6 +10,8 @@ class PdfFileTest {
         val pdf: PdfFile = PdfFile("test_cases/blank_page.pdf", false)
 
         assertNotNull(pdf)
+
+        pdf.close()
     }
 
     @Test
@@ -19,5 +21,7 @@ class PdfFileTest {
         assertNotNull(pdf)
 
         pdf.printInfo()
+
+        pdf.close()
     }
 }
