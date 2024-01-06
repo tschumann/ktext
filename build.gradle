@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     implementation(
-            'com.itextpdf:itext7-core:7.2.5',
+            'com.itextpdf:itext-core:8.0.2',
             'org.jetbrains.kotlin:kotlin-stdlib:1.9.22'
     )
 
