@@ -28,16 +28,16 @@ repositories {
 dependencies {
     implementation(
             'com.itextpdf:itext-core:8.0.2',
-            'org.jetbrains.kotlin:kotlin-stdlib:1.9.22'
+            'org.jetbrains.kotlin:kotlin-stdlib:1.9.25'
     )
 
     testImplementation(
-            'org.junit.jupiter:junit-jupiter-api:5.10.1',
-            'org.jetbrains.kotlin:kotlin-test-common:1.9.22',
-            'org.jetbrains.kotlin:kotlin-test:1.9.22'
+            'org.junit.jupiter:junit-jupiter-api:5.11.3',
+            'org.jetbrains.kotlin:kotlin-test-common:1.9.25',
+            'org.jetbrains.kotlin:kotlin-test:1.9.25'
     )
     testRuntimeOnly(
-            'org.junit.jupiter:junit-jupiter-engine:5.10.1'
+            'org.junit.jupiter:junit-jupiter-engine:5.11.3'
     )
 }
 
@@ -75,7 +75,7 @@ test {
 }
 
 jacoco {
-    toolVersion = "0.8.11"
+    toolVersion = "0.8.12"
 }
 
 jacocoTestReport {
